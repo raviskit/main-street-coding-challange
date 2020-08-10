@@ -30,7 +30,15 @@ class CompaniesController < ApplicationController
     else
       render :edit
     end
-  end  
+  end
+
+  def destroy
+    if @company.destroy
+      redirect_to companies_path, notice: "#{@company.name} deleted successfully"
+    else
+      render :show, error: "error occurred while deleting #{@company.name}"
+    end
+  end
 
   private
 
