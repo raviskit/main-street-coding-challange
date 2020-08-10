@@ -1,3 +1,13 @@
+<% if @company.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li class="alert-danger"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="py-5">
   <%= form_for @company do |f| %>
 
@@ -53,7 +63,7 @@
       </div>
       <div class="col-lg offset-lg-1">
         <div class="form-group">
-          <%= f.text_field :email, class: "form-control", placeholder: "hello@company.com"%>
+          <%= f.text_field :email, class: "form-control", placeholder: "hello@getmainstreet.com"%>
         </div>
       </div>
     </div>
